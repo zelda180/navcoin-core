@@ -7405,7 +7405,11 @@ bool TransactionGetCoinAge(CTransaction& transaction  , const CBlockIndex* pinde
         bnCentSecond += CBigNum(nValueIn) * (transaction.nTime-txPrev.nTime) / CENT;
 
 
-        LogPrint("coinage", "coin age nValueIn=%d nTimeDiff=%d bnCentSecond=%s\n", nValueIn, transaction.nTime - txPrev.nTime, bnCentSecond.ToString());
+        // LogPrint("coinage", "coin age nValueIn=%d nTimeDiff=%d bnCentSecond=%s\n", nValueIn, transaction.nTime - txPrev.nTime, bnCentSecond.ToString());
++
+        LogPrint("coinage", "coin age nValueIn=%d txTime=%d txPrevTime=%d nTimeDiff=%d bnCentSecond=%s\n", nValueIn, transaction.nTime, txPrev.nTime, transaction.nTime - txPrev.nTime, bnCentSecond.ToString());
+        LogPrint("coinage", "transaction=%s\n", transaction.ToString());
+        LogPrint("coinage", "txPrev=%s\n", txPrev.ToString()); 
     }
 
 
